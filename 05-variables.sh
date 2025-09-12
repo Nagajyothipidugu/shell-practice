@@ -4,4 +4,4 @@ echo "Enter your pin ::"
 
 read PIN 
 
-echo "your Pin number is : $PIN
+echo "your Pin number is : $PIN"
