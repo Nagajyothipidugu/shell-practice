@@ -1,6 +1,7 @@
 #!/bin/bash
 
-Movies=("court","little-hearts","ghati","narasimha")
+MOVIES=("court" "little-hearts" "ghati" "narasimha")
 
-echo "first movie is: ${Movies[0]}"
+echo "first movie is: ${MOVIES[0]}"
+echo "Third movie is : ${MOVIES[2]}
 
