@@ -2,5 +2,5 @@
 
 Movies=("court","little-hearts","ghati","narasimha")
 
-echo "movie name is : ${Movies[0]}"
+echo "first movie is: ${Movies[0]}"
 
