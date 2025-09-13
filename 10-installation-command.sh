@@ -12,7 +12,7 @@ else
 
 fi  
 
-dnf install mysqlrrrrr -y 
+dnf install mysql -y 
 
 if [ $? -eq 0 ] 
 then 
