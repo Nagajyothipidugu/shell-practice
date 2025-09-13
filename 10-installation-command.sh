@@ -19,7 +19,7 @@ then
    echo "Mysql installation is success..."
 else 
    echo "MYsql installation is failure"
-   #exit 1
+   exit 1
 
 fi
 
