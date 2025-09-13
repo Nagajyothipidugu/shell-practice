@@ -18,7 +18,10 @@ then
    echo "Mysql is not installed...Going to install.."
 else 
    echo "Mysql is installed..Nothing to do.." 
-fi    
+   exit 1
+
+fi 
+
 
 
 dnf install mysql -y 
