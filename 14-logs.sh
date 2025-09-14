@@ -10,25 +10,25 @@ SCRIPT_NAME=$(echo $0 |cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER 
-echo "script started executing at :: $(date)" tee -a $LOG_FILE
+echo "script started executing at :: $(date)" |tee -a $LOG_FILE
 
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then 
-   echo -e "$R ERROR:: Please run this script with root access $N" tee -a $LOG_FILE
+   echo -e "$R ERROR:: Please run this script with root access $N" |tee -a $LOG_FILE
    exit 1 # give other than 0 upto 127
 else 
-   echo -e "$G You are running with root access  $N" tee -a $LOG_FILE
+   echo -e "$G You are running with root access  $N" |tee -a $LOG_FILE
 fi  
 
 
 VALIDATE(){
     if [ $1 -eq 0 ] 
     then 
-     echo -e " $G $2 installation is success... $N" tee -a $LOG_FILE
+     echo -e " $G $2 installation is success... $N" | tee -a $LOG_FILE
     else 
-     echo -e " $R $2 installation is failure $N"  tee -a $LOG_FILE
+     echo -e " $R $2 installation is failure $N"  | tee -a $LOG_FILE
      exit 1
 
     fi
@@ -37,29 +37,29 @@ VALIDATE(){
 dnf list installed mysql  &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-   echo -e " $R Mysql is not installed...Going to install.. $N" tee -a $LOG_FILE
+   echo -e " $R Mysql is not installed...Going to install.. $N" |tee -a $LOG_FILE
    dnf install mysql -y  &>>$LOG_FILE
    VALIDATE $? "mysql" 
 else 
-   echo -e " $Y Mysql is installed..Nothing to do.. $N"  tee -a $LOG_FILE
+   echo -e " $Y Mysql is installed..Nothing to do.. $N"  | tee -a $LOG_FILE
 fi 
 
 dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-   echo "nginx is not installed...Going to install.." tee -a $LOG_FILE
+   echo "nginx is not installed...Going to install.." | tee -a $LOG_FILE
    dnf install nginx -y  &>>$LOG_FILE
    VALIDATE $? "nginx" 
 else 
-   echo -e "$Y nginx is installed..Nothing to do.. $N"  tee -a $LOG_FILE
+   echo -e "$Y nginx is installed..Nothing to do.. $N"  | tee -a $LOG_FILE
 fi 
 
 dnf list installed python3 &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-   echo "python3 is not installed...Going to install.." tee -a $LOG_FILE
+   echo "python3 is not installed...Going to install.." | tee -a $LOG_FILE
    dnf install python3 -y  &>>$LOG_FILE
    VALIDATE $? "python3" 
 else 
-   echo -e "$Y python3 is installed..Nothing to do.. $N" tee -a $LOG_FILE
+   echo -e "$Y python3 is installed..Nothing to do.. $N" | tee -a $LOG_FILE
 fi 
