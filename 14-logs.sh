@@ -5,9 +5,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m" 
  
-LOGS_FOLDER="/var/log/shellscript-logs"
+LOGS_FOLDER=/var/log/shellscript-logs
 SCRIPT_NAME=$(echo $0 |cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME"
+LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME
 
 mkdir -p $LOGS_FOLDER 
 echo "script started executing at :: $(date)" &>>$LOG_FILE
